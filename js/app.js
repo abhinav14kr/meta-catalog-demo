@@ -281,32 +281,104 @@ function showToast(message) {
 /* ------------------------------------------------------------------ *
  * Page renderers
  * ------------------------------------------------------------------ */
+// Home page state for the filter/sort controls.
+const homeState = { category: "All", sort: "featured" };
+
+function cardHtml(p) {
+  return (
+    '<a class="card" href="product.html?id=' +
+    encodeURIComponent(p.id) +
+    '">' +
+    '<div class="card-img"><img loading="lazy" src="' +
+    escapeAttr(p.image) +
+    '" alt="' +
+    escapeAttr(p.name) +
+    '"></div>' +
+    '<div class="card-body">' +
+    '<span class="card-cat">' +
+    escapeHtml(p.category) +
+    "</span>" +
+    '<h3 class="card-name">' +
+    escapeHtml(p.name) +
+    "</h3>" +
+    '<span class="card-price">' +
+    money(p.price) +
+    "</span>" +
+    "</div>" +
+    "</a>"
+  );
+}
+
 function renderHome() {
   const grid = document.getElementById("product-grid");
   if (!grid) return;
-  grid.innerHTML = PRODUCTS.map(
-    (p) =>
-      '<a class="card" href="product.html?id=' +
-      encodeURIComponent(p.id) +
-      '">' +
-      '<div class="card-img"><img loading="lazy" src="' +
-      escapeAttr(p.image) +
-      '" alt="' +
-      escapeAttr(p.name) +
-      '"></div>' +
-      '<div class="card-body">' +
-      '<span class="card-cat">' +
-      escapeHtml(p.category) +
-      "</span>" +
-      '<h3 class="card-name">' +
-      escapeHtml(p.name) +
-      "</h3>" +
-      '<span class="card-price">' +
-      money(p.price) +
-      "</span>" +
-      "</div>" +
-      "</a>"
-  ).join("");
+
+  renderFilterChips();
+  wireSort();
+  renderProductGrid();
+}
+
+function renderFilterChips() {
+  const wrap = document.getElementById("filter-chips");
+  if (!wrap) return;
+  const cats = ["All"].concat(getCategories());
+  wrap.innerHTML = cats
+    .map(
+      (c) =>
+        '<button type="button" class="chip' +
+        (c === homeState.category ? " chip-active" : "") +
+        '" data-cat="' +
+        escapeAttr(c) +
+        '">' +
+        escapeHtml(c) +
+        "</button>"
+    )
+    .join("");
+  wrap.querySelectorAll(".chip").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      homeState.category = btn.getAttribute("data-cat");
+      renderFilterChips(); // repaint active state
+      renderProductGrid();
+    });
+  });
+}
+
+function wireSort() {
+  const sel = document.getElementById("sort-select");
+  if (!sel || sel.dataset.wired) return;
+  sel.dataset.wired = "1";
+  sel.value = homeState.sort;
+  sel.addEventListener("change", () => {
+    homeState.sort = sel.value;
+    renderProductGrid();
+  });
+}
+
+function renderProductGrid() {
+  const grid = document.getElementById("product-grid");
+  if (!grid) return;
+
+  let list = PRODUCTS.slice();
+  if (homeState.category !== "All") {
+    list = list.filter((p) => p.category === homeState.category);
+  }
+  if (homeState.sort === "price-asc") {
+    list.sort((a, b) => a.price - b.price);
+  } else if (homeState.sort === "price-desc") {
+    list.sort((a, b) => b.price - a.price);
+  } else if (homeState.sort === "name") {
+    list.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  const count = document.getElementById("result-count");
+  if (count) {
+    count.textContent =
+      list.length + (list.length === 1 ? " product" : " products");
+  }
+
+  grid.innerHTML = list.length
+    ? list.map(cardHtml).join("")
+    : '<div class="empty-state"><p>No products in this category.</p></div>';
 }
 
 function renderProduct() {

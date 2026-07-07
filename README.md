@@ -28,7 +28,8 @@ demo-store/
 ├── js/
 │   ├── products.js     Product data — SINGLE SOURCE OF TRUTH
 │   ├── pixel-events.js All Meta Pixel event functions
-│   └── app.js          Page logic, cart (localStorage), debug overlay
+│   └── app.js          Page logic, cart, filters/sort, debug overlay
+├── catalog-feed.csv                  Catalog data feed — upload to Commerce Manager
 ├── supplementary-feed-template.csv   Video feed starter (see below)
 └── README.md
 ```
@@ -48,19 +49,38 @@ Change names, prices, images, or descriptions there and every page updates.
 
 ---
 
-## Product IDs are synced to the real catalog
+## 30 products, filters, and catalog sync
 
-The 8 products in `js/products.js` mirror catalog `1673433826846518` exactly:
-each `id` is the catalog's real `retailer_id` (`prod_001` … `prod_008`), with
-matching names, prices, and images. So the pixel's `content_ids` match catalog
-items 1:1 and match rate works out of the box.
+The store has **30 products** (`prod_001` … `prod_030`) across 8 categories
+(Shoes, Outerwear, Apparel, Bags, Accessories, Electronics, Fitness, Home). The
+homepage has **category filter chips + a sort control** (Featured / Price / Name),
+all driven off `js/products.js`.
 
-If the catalog changes, re-sync:
+`prod_001`–`prod_008` already exist in catalog `1673433826846518`. The other 22
+(`prod_009`–`prod_030`) must be added to the catalog so all 30 `content_ids`
+match and attribute.
 
-1. Commerce Manager → **Catalog `1673433826846518`** → **Items** → **Export**.
-2. In `js/products.js`, update each product's `id` to the real `retailer_id`
-   (and name / price / image to match).
-3. Re-deploy. No other file references the IDs directly.
+### Add the new items to the catalog (one-time)
+
+Upload **`catalog-feed.csv`** (generated from the same product data, standard Meta
+feed schema: id, title, description, availability, condition, price, link,
+image_link, brand):
+
+1. Commerce Manager → **Catalog `1673433826846518`** → **Data Sources**.
+2. Open the **existing feed** and **replace / upload** `catalog-feed.csv`
+   (recommended, so there is one source of truth keyed by `id`), OR **Add items →
+   Data feed → Upload file**.
+3. Items are upserted by `id`: the original 8 update in place, the 22 new ones are
+   created. No duplicates.
+
+### If the catalog changes later
+
+1. Update `js/products.js` (single source of truth).
+2. Regenerate the feeds:
+   ```bash
+   node -e '...'   # or just re-run the generator used to build catalog-feed.csv
+   ```
+3. Re-upload `catalog-feed.csv` and re-deploy the site.
 
 ---
 
