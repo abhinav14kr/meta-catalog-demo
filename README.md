@@ -30,7 +30,8 @@ demo-store/
 │   ├── pixel-events.js All Meta Pixel event functions
 │   └── app.js          Page logic, cart, filters/sort, debug overlay
 ├── catalog-feed.csv                  Catalog data feed — upload to Commerce Manager
-├── supplementary-feed-template.csv   Video feed starter (see below)
+├── catalog-video-feed.csv            Video supplementary feed (sample MP4s) — ready to upload
+├── supplementary-feed-template.csv   Video feed template (swap in your own CDN URLs)
 └── README.md
 ```
 
