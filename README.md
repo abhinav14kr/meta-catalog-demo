@@ -48,21 +48,19 @@ Change names, prices, images, or descriptions there and every page updates.
 
 ---
 
-## Replacing placeholder IDs with real catalog retailer_ids
+## Product IDs are synced to the real catalog
 
-The `id` values (`DEMO-001` … `DEMO-010`) are placeholders. The pixel sends them
-as `content_ids`, and **they must match the `retailer_id` (a.k.a. content ID /
-SKU) of items in catalog `1673433826846518`** for events to attribute.
+The 8 products in `js/products.js` mirror catalog `1673433826846518` exactly:
+each `id` is the catalog's real `retailer_id` (`prod_001` … `prod_008`), with
+matching names, prices, and images. So the pixel's `content_ids` match catalog
+items 1:1 and match rate works out of the box.
 
-To swap in real IDs:
+If the catalog changes, re-sync:
 
 1. Commerce Manager → **Catalog `1673433826846518`** → **Items** → **Export**.
-2. Copy the `retailer_id` (or `id`) column values.
-3. In `js/products.js`, replace each product's `id` with a real `retailer_id`.
-   (Optionally update `name` / `price` / `image` to match.)
-4. Re-deploy. New events will now carry real content IDs.
-
-No other file references the IDs directly, so this is the only edit needed.
+2. In `js/products.js`, update each product's `id` to the real `retailer_id`
+   (and name / price / image to match).
+3. Re-deploy. No other file references the IDs directly.
 
 ---
 

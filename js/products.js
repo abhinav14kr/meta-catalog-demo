@@ -1,105 +1,98 @@
 /*
  * products.js — SINGLE SOURCE OF TRUTH for all product data.
  * ---------------------------------------------------------------------------
- * To demo against your real Meta catalog (ID 1673433826846518):
- *   1. Commerce Manager -> Catalog -> Items -> Export.
- *   2. Replace each `id` below with the matching `retailer_id` from that export.
- *      The pixel fires `content_ids` using these `id` values, and they must
- *      match the catalog's retailer_id field for events to attribute.
- *   3. Optionally update name/price/image to match the real items.
+ * These items MIRROR the real Meta catalog 1673433826846518 ("Products for
+ * Abhinav personal catalog"). Each `id` is the catalog's actual `retailer_id`,
+ * so the pixel's content_ids match catalog items 1:1 (match rate works, and
+ * Advantage+ Catalog Ads / Catalog Product Video have matched events to use).
  *
- * Nothing else in the codebase hardcodes product data — change it here only.
+ * Pixel 733939589457690 is already connected to this catalog as an external
+ * event source, so no connection step is needed in Commerce Manager.
+ *
+ * If the catalog changes, re-export from Commerce Manager -> Catalog -> Items
+ * and update the entries below. Nothing else in the codebase hardcodes product
+ * data — change it here only.
  */
 const PRODUCTS = [
   {
-    id: "DEMO-001",
+    id: "prod_001",
     name: "Classic White Sneakers",
-    price: 89.99,
+    price: 79.99,
     category: "Shoes",
-    image: "https://picsum.photos/seed/sneakers/600/600",
+    image:
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop",
     description:
-      "Everyday low-top sneakers in premium white leather with a cushioned footbed and durable rubber outsole. Goes with everything.",
+      "Comfortable everyday white sneakers with cushioned sole. Perfect for casual wear.",
   },
   {
-    id: "DEMO-002",
-    name: "Leather Crossbody Bag",
+    id: "prod_002",
+    name: "Navy Blue Running Jacket",
     price: 129.99,
-    category: "Bags",
-    image: "https://picsum.photos/seed/bag/600/600",
+    category: "Outerwear",
+    image:
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=600&fit=crop",
     description:
-      "Full-grain leather crossbody with an adjustable strap and magnetic flap. Compact enough for essentials, roomy enough for a day out.",
+      "Lightweight windproof running jacket with reflective details. Ideal for morning jogs.",
   },
   {
-    id: "DEMO-003",
-    name: "Oversized Sunglasses",
+    id: "prod_003",
+    name: "Organic Cotton T-Shirt - Black",
+    price: 34.99,
+    category: "Apparel",
+    image:
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop",
+    description:
+      "Soft organic cotton crew neck t-shirt. Sustainably sourced and ethically made.",
+  },
+  {
+    id: "prod_004",
+    name: "Leather Crossbody Bag",
+    price: 149.99,
+    category: "Bags",
+    image:
+      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&h=600&fit=crop",
+    description:
+      "Genuine leather crossbody bag with adjustable strap and multiple compartments.",
+  },
+  {
+    id: "prod_005",
+    name: "Polarized Aviator Sunglasses",
     price: 59.99,
     category: "Accessories",
-    image: "https://picsum.photos/seed/sunglasses/600/600",
+    image:
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&h=600&fit=crop",
     description:
-      "Bold oversized frames with UV400 polarized lenses and lightweight acetate construction. Includes a hard case and cleaning cloth.",
+      "UV400 polarized aviator sunglasses with metal frame. Classic style with modern protection.",
   },
   {
-    id: "DEMO-004",
-    name: "Minimalist Watch",
-    price: 199.99,
-    category: "Watches",
-    image: "https://picsum.photos/seed/watch/600/600",
+    id: "prod_006",
+    name: "Slim Fit Chino Pants - Khaki",
+    price: 69.99,
+    category: "Apparel",
+    image:
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&h=600&fit=crop",
     description:
-      "Slim 38mm case, sapphire crystal, and a genuine leather band. Understated design that reads clean on any wrist.",
+      "Stretch cotton slim fit chino pants. Versatile style for work or weekend.",
   },
   {
-    id: "DEMO-005",
-    name: "Denim Jacket",
-    price: 149.99,
-    category: "Outerwear",
-    image: "https://picsum.photos/seed/jacket/600/600",
-    description:
-      "A classic trucker jacket in mid-wash rigid denim that breaks in beautifully over time. Timeless layering piece for any season.",
-  },
-  {
-    id: "DEMO-006",
-    name: "Running Shoes Pro",
-    price: 159.99,
-    category: "Shoes",
-    image: "https://picsum.photos/seed/running/600/600",
-    description:
-      "Performance running shoe with responsive foam midsole, breathable engineered mesh upper, and a grippy carbon-rubber outsole.",
-  },
-  {
-    id: "DEMO-007",
-    name: "Canvas Tote Bag",
-    price: 39.99,
-    category: "Bags",
-    image: "https://picsum.photos/seed/tote/600/600",
-    description:
-      "Heavyweight organic-cotton canvas tote with reinforced handles and an interior pocket. Built to haul groceries or gear.",
-  },
-  {
-    id: "DEMO-008",
-    name: "Wireless Earbuds",
-    price: 79.99,
+    id: "prod_007",
+    name: "Wireless Bluetooth Earbuds",
+    price: 89.99,
     category: "Electronics",
-    image: "https://picsum.photos/seed/earbuds/600/600",
+    image:
+      "https://images.unsplash.com/photo-1590658268037-6bf12f032f55?w=600&h=600&fit=crop",
     description:
-      "True-wireless earbuds with active noise cancellation, 30-hour total battery, and a pocketable charging case.",
+      "True wireless earbuds with active noise cancellation and 24hr battery life.",
   },
   {
-    id: "DEMO-009",
-    name: "Yoga Mat Premium",
-    price: 49.99,
-    category: "Fitness",
-    image: "https://picsum.photos/seed/yoga/600/600",
-    description:
-      "Extra-thick 6mm non-slip yoga mat with alignment markers and a moisture-wicking top layer. Includes a carry strap.",
-  },
-  {
-    id: "DEMO-010",
-    name: "Stainless Water Bottle",
-    price: 34.99,
+    id: "prod_008",
+    name: "Stainless Steel Water Bottle",
+    price: 29.99,
     category: "Accessories",
-    image: "https://picsum.photos/seed/bottle/600/600",
+    image:
+      "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=600&fit=crop",
     description:
-      "Double-walled insulated bottle that keeps drinks cold for 24 hours or hot for 12. Leakproof lid and powder-coated finish.",
+      "Double-walled insulated water bottle. Keeps drinks cold 24hrs or hot 12hrs. 750ml capacity.",
   },
 ];
 
