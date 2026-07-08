@@ -1,4 +1,4 @@
-# Aurelia — Meta Pixel + Catalog Demo Store
+# Aurelia - Meta Pixel + Catalog Demo Store
 
 A tiny, dependency-free e-commerce site for demoing Meta's **Catalog Product
 Video + Advantage+ Catalog Ads** workflow. It installs the Meta Pixel and fires
