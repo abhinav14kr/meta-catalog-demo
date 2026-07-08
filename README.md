@@ -6,8 +6,8 @@ installs the Meta Pixel, and fires the standard commerce events (`PageView`,
 `ViewContent`, `AddToCart`, `Purchase`) with the parameters Meta needs to match
 events against a product catalog.
 
-- **Pixel ID:** `733939589457690`
-- **Catalog ID (connect separately):** `1673433826846518`
+- **Pixel ID:** `1006969672056740`
+- **Catalog ID (connect separately):** `1018515947811073`
 - **No backend, no build step, no npm.** Pure HTML/CSS/JS.
 
 > This is a demo. It does not process real orders, payments, accounts, or
@@ -57,7 +57,7 @@ The store has **30 products** (`prod_001` … `prod_030`) across 8 categories
 homepage has **category filter chips + a sort control** (Featured / Price / Name),
 all driven off `js/products.js`.
 
-`prod_001`–`prod_008` already exist in catalog `1673433826846518`. The other 22
+`prod_001`–`prod_008` already exist in catalog `1018515947811073`. The other 22
 (`prod_009`–`prod_030`) must be added to the catalog so all 30 `content_ids`
 match and attribute.
 
@@ -67,7 +67,7 @@ Upload **`catalog-feed.csv`** (generated from the same product data, standard Me
 feed schema: id, title, description, availability, condition, price, link,
 image_link, brand):
 
-1. Commerce Manager → **Catalog `1673433826846518`** → **Data Sources**.
+1. Commerce Manager → **Catalog `1018515947811073`** → **Data Sources**.
 2. Open the **existing feed** and **replace / upload** `catalog-feed.csv`
    (recommended, so there is one source of truth keyed by `id`), OR **Add items →
    Data feed → Upload file**.
@@ -108,7 +108,7 @@ Expected events:
 | "Complete Purchase" click         | `Purchase`    | `content_ids` (all items), `contents`, `value` (total), `num_items`, `currency` |
 
 You can also confirm server-side in **Events Manager → Data Sources → Pixel
-`733939589457690` → Test Events / Overview**.
+`1006969672056740` → Test Events / Overview**.
 
 ---
 
@@ -116,8 +116,8 @@ You can also confirm server-side in **Events Manager → Data Sources → Pixel
 
 The site only fires events. To close the loop for Advantage+ Catalog Ads:
 
-1. **Commerce Manager → Catalog `1673433826846518` → Settings / Data Sources →
-   Connect a pixel** → select pixel `733939589457690`.
+1. **Commerce Manager → Catalog `1018515947811073` → Settings / Data Sources →
+   Connect a pixel** → select pixel `1006969672056740`.
 2. Give it **24–48 hours** after deploying + browsing so Commerce Manager shows
    event data and a content-ID match rate.
 3. Then layer on the **supplementary video feed** (see the CSV template) to enable
@@ -168,7 +168,7 @@ python -m http.server 8000
 ## What to do before the actual demo
 
 1. Deploy (GitHub Pages is fastest).
-2. Connect pixel `733939589457690` to catalog `1673433826846518` in Commerce
+2. Connect pixel `1006969672056740` to catalog `1018515947811073` in Commerce
    Manager.
 3. Browse the live site yourself — view products, add to cart, complete a
    purchase — to seed matched events. Do this **24–48h ahead** so match-rate and
