@@ -1,13 +1,9 @@
 /*
  * products.js — SINGLE SOURCE OF TRUTH for all product data.
  * ---------------------------------------------------------------------------
- * Each `id` is the catalog's `retailer_id`. prod_001..prod_008 mirror the items
- * that already exist in catalog 1018515947811073. prod_009..prod_030 are the new
- * items — upload `catalog-feed.csv` (generated from this same data) to the
- * catalog so all 30 content_ids match and attribute.
- *
- * Pixel 1006969672056740 is already connected to the catalog as an external
- * event source, so no connection step is needed in Commerce Manager.
+ * Each `id` must equal the matching `retailer_id` in your Meta catalog so the
+ * pixel's content_ids attribute 1:1. Upload catalog-feed.csv (built from this
+ * same data) to your catalog so all content_ids match.
  *
  * The `category` field powers the on-site filters. Change data here only —
  * nothing else in the codebase hardcodes products.
