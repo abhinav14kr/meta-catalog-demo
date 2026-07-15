@@ -16,7 +16,7 @@ const PRODUCTS = [
     price: 79.99,
     category: "Shoes",
     image:
-      "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&h=600&fit=crop",
+      "images/prod_001.jpg",
     description:
       "Comfortable everyday white sneakers with cushioned sole. Perfect for casual wear.",
   },
@@ -26,7 +26,7 @@ const PRODUCTS = [
     price: 129.99,
     category: "Outerwear",
     image:
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=600&fit=crop",
+      "images/prod_002.jpg",
     description:
       "Lightweight windproof running jacket with reflective details. Ideal for morning jogs.",
   },
@@ -36,7 +36,7 @@ const PRODUCTS = [
     price: 34.99,
     category: "Apparel",
     image:
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop",
+      "images/prod_003.jpg",
     description:
       "Soft organic cotton crew neck t-shirt. Sustainably sourced and ethically made.",
   },
@@ -46,7 +46,7 @@ const PRODUCTS = [
     price: 149.99,
     category: "Bags",
     image:
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&h=600&fit=crop",
+      "images/prod_004.jpg",
     description:
       "Genuine leather crossbody bag with adjustable strap and multiple compartments.",
   },
@@ -56,7 +56,7 @@ const PRODUCTS = [
     price: 59.99,
     category: "Accessories",
     image:
-      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&h=600&fit=crop",
+      "images/prod_005.jpg",
     description:
       "UV400 polarized aviator sunglasses with metal frame. Classic style with modern protection.",
   },
@@ -66,7 +66,7 @@ const PRODUCTS = [
     price: 69.99,
     category: "Apparel",
     image:
-      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&h=600&fit=crop",
+      "images/prod_006.jpg",
     description:
       "Stretch cotton slim fit chino pants. Versatile style for work or weekend.",
   },
@@ -76,7 +76,7 @@ const PRODUCTS = [
     price: 89.99,
     category: "Electronics",
     image:
-      "https://images.unsplash.com/photo-1590658268037-6bf12f032f55?w=600&h=600&fit=crop",
+      "images/prod_007.jpg",
     description:
       "True wireless earbuds with active noise cancellation and 24hr battery life.",
   },
@@ -86,7 +86,7 @@ const PRODUCTS = [
     price: 29.99,
     category: "Accessories",
     image:
-      "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=600&fit=crop",
+      "images/prod_008.jpg",
     description:
       "Double-walled insulated water bottle. Keeps drinks cold 24hrs or hot 12hrs. 750ml capacity.",
   },
@@ -97,7 +97,7 @@ const PRODUCTS = [
     name: "Suede Chelsea Boots",
     price: 139.99,
     category: "Shoes",
-    image: "https://picsum.photos/seed/chelseaboots/600/600",
+    image: "images/prod_009.jpg",
     description:
       "Premium suede Chelsea boots with elastic side panels and a stacked heel. Smart-casual staple.",
   },
@@ -106,7 +106,7 @@ const PRODUCTS = [
     name: "Canvas High-Top Sneakers",
     price: 64.99,
     category: "Shoes",
-    image: "https://picsum.photos/seed/hightops/600/600",
+    image: "images/prod_010.jpg",
     description:
       "Retro canvas high-tops with vulcanized rubber sole and a padded ankle collar.",
   },
@@ -115,7 +115,7 @@ const PRODUCTS = [
     name: "Merino Wool Sweater",
     price: 99.99,
     category: "Apparel",
-    image: "https://picsum.photos/seed/woolsweater/600/600",
+    image: "images/prod_011.jpg",
     description:
       "Fine-gauge merino wool crewneck sweater. Breathable, temperature-regulating, and itch-free.",
   },
@@ -124,7 +124,7 @@ const PRODUCTS = [
     name: "Linen Button-Down Shirt",
     price: 54.99,
     category: "Apparel",
-    image: "https://picsum.photos/seed/linenshirt/600/600",
+    image: "images/prod_012.jpg",
     description:
       "Breathable European linen shirt with a relaxed fit. Perfect for warm-weather layering.",
   },
@@ -133,7 +133,7 @@ const PRODUCTS = [
     name: "Quilted Puffer Vest",
     price: 89.99,
     category: "Outerwear",
-    image: "https://picsum.photos/seed/puffervest/600/600",
+    image: "images/prod_013.jpg",
     description:
       "Lightweight quilted puffer vest with a water-repellent shell and zippered hand pockets.",
   },
@@ -142,7 +142,7 @@ const PRODUCTS = [
     name: "Waterproof Rain Parka",
     price: 159.99,
     category: "Outerwear",
-    image: "https://picsum.photos/seed/rainparka/600/600",
+    image: "images/prod_014.jpg",
     description:
       "Fully seam-sealed rain parka with an adjustable hood and ventilated back yoke.",
   },
@@ -151,7 +151,7 @@ const PRODUCTS = [
     name: "Canvas Tote Bag",
     price: 39.99,
     category: "Bags",
-    image: "https://picsum.photos/seed/canvastote/600/600",
+    image: "images/prod_015.jpg",
     description:
       "Heavyweight organic-cotton canvas tote with reinforced handles and an interior pocket.",
   },
@@ -160,7 +160,7 @@ const PRODUCTS = [
     name: "Rolling Weekender Duffel",
     price: 179.99,
     category: "Bags",
-    image: "https://picsum.photos/seed/duffel/600/600",
+    image: "images/prod_016.jpg",
     description:
       "Spacious weekender duffel with smooth-glide wheels, a trolley sleeve, and a shoe compartment.",
   },
@@ -169,7 +169,7 @@ const PRODUCTS = [
     name: "Minimalist Analog Watch",
     price: 199.99,
     category: "Accessories",
-    image: "https://picsum.photos/seed/analogwatch/600/600",
+    image: "images/prod_017.jpg",
     description:
       "Slim 38mm analog watch with sapphire crystal and a genuine leather strap.",
   },
@@ -178,7 +178,7 @@ const PRODUCTS = [
     name: "Woven Leather Belt",
     price: 44.99,
     category: "Accessories",
-    image: "https://picsum.photos/seed/leatherbelt/600/600",
+    image: "images/prod_018.jpg",
     description:
       "Full-grain woven leather belt with a brushed-nickel buckle. Adjusts to any notch.",
   },
@@ -187,7 +187,7 @@ const PRODUCTS = [
     name: "Smart Fitness Tracker",
     price: 129.99,
     category: "Electronics",
-    image: "https://picsum.photos/seed/fitnesstracker/600/600",
+    image: "images/prod_019.jpg",
     description:
       "Water-resistant fitness tracker with heart-rate, sleep, and SpO2 monitoring. 7-day battery.",
   },
@@ -196,7 +196,7 @@ const PRODUCTS = [
     name: "Portable Bluetooth Speaker",
     price: 74.99,
     category: "Electronics",
-    image: "https://picsum.photos/seed/btspeaker/600/600",
+    image: "images/prod_020.jpg",
     description:
       "Pocket-sized Bluetooth speaker with 360-degree sound, IPX7 waterproofing, and 20hr playback.",
   },
@@ -205,7 +205,7 @@ const PRODUCTS = [
     name: "4K Action Camera",
     price: 249.99,
     category: "Electronics",
-    image: "https://picsum.photos/seed/actioncam/600/600",
+    image: "images/prod_021.jpg",
     description:
       "Rugged 4K action camera with electronic image stabilization and a waterproof housing.",
   },
@@ -214,7 +214,7 @@ const PRODUCTS = [
     name: "Non-Slip Yoga Mat",
     price: 49.99,
     category: "Fitness",
-    image: "https://picsum.photos/seed/yogamat/600/600",
+    image: "images/prod_022.jpg",
     description:
       "Extra-thick 6mm non-slip yoga mat with alignment markers and a carry strap.",
   },
@@ -223,7 +223,7 @@ const PRODUCTS = [
     name: "Adjustable Dumbbell Set",
     price: 199.99,
     category: "Fitness",
-    image: "https://picsum.photos/seed/dumbbells/600/600",
+    image: "images/prod_023.jpg",
     description:
       "Space-saving adjustable dumbbells that dial from 5 to 52.5 lbs per hand.",
   },
@@ -232,7 +232,7 @@ const PRODUCTS = [
     name: "High-Density Foam Roller",
     price: 24.99,
     category: "Fitness",
-    image: "https://picsum.photos/seed/foamroller/600/600",
+    image: "images/prod_024.jpg",
     description:
       "Textured high-density foam roller for deep-tissue muscle recovery and mobility work.",
   },
@@ -241,7 +241,7 @@ const PRODUCTS = [
     name: "Ceramic Pour-Over Coffee Set",
     price: 64.99,
     category: "Home",
-    image: "https://picsum.photos/seed/pourover/600/600",
+    image: "images/prod_025.jpg",
     description:
       "Hand-glazed ceramic pour-over dripper with a matching 600ml carafe.",
   },
@@ -250,7 +250,7 @@ const PRODUCTS = [
     name: "Scented Soy Candle",
     price: 22.99,
     category: "Home",
-    image: "https://picsum.photos/seed/soycandle/600/600",
+    image: "images/prod_026.jpg",
     description:
       "Hand-poured soy candle with cedar and sandalwood notes. 50-hour burn time.",
   },
@@ -259,7 +259,7 @@ const PRODUCTS = [
     name: "Linen Throw Blanket",
     price: 79.99,
     category: "Home",
-    image: "https://picsum.photos/seed/throwblanket/600/600",
+    image: "images/prod_027.jpg",
     description:
       "Stonewashed pure-linen throw that softens with every wash. Generously oversized.",
   },
@@ -268,7 +268,7 @@ const PRODUCTS = [
     name: "Bamboo Cutting Board",
     price: 34.99,
     category: "Home",
-    image: "https://picsum.photos/seed/cuttingboard/600/600",
+    image: "images/prod_028.jpg",
     description:
       "Sustainable bamboo cutting board with a juice groove and built-in handles.",
   },
@@ -277,7 +277,7 @@ const PRODUCTS = [
     name: "Lightweight Running Shorts",
     price: 39.99,
     category: "Apparel",
-    image: "https://picsum.photos/seed/runningshorts/600/600",
+    image: "images/prod_029.jpg",
     description:
       "Featherweight running shorts with a built-in liner, zip pocket, and reflective trim.",
   },
@@ -286,7 +286,7 @@ const PRODUCTS = [
     name: "Trail Running Shoes",
     price: 119.99,
     category: "Shoes",
-    image: "https://picsum.photos/seed/trailrunners/600/600",
+    image: "images/prod_030.jpg",
     description:
       "Aggressive-lug trail runners with a rock plate and a breathable, quick-drying upper.",
   },
