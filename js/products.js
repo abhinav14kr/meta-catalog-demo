@@ -106,7 +106,7 @@ const PRODUCTS = [
     name: "Canvas High-Top Sneakers",
     price: 64.99,
     category: "Shoes",
-    image: "images/prod_010.jpg",
+    image: "images/prod_010.gif",
     description:
       "Retro canvas high-tops with vulcanized rubber sole and a padded ankle collar.",
   },
