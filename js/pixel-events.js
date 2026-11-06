@@ -11,12 +11,47 @@
  * can show events firing live during a demo without opening DevTools.
  */
 
+/*
+ * predicted_value: optional demo param. Enable with ?pv=true (persists in
+ * localStorage, like ?debug=true); ?pv=false turns it off.
+ */
+const PV_KEY = "demo_store_pv";
+
+(function persistPvParam() {
+  const p = new URLSearchParams(window.location.search).get("pv");
+  if (p !== "true" && p !== "false") return;
+  try {
+    window.localStorage.setItem(PV_KEY, p);
+  } catch (e) {
+    /* storage unavailable; the URL param still applies on this page */
+  }
+})();
+
+function isPredictedValueEnabled() {
+  const p = new URLSearchParams(window.location.search).get("pv");
+  if (p === "true") return true;
+  if (p === "false") return false;
+  try {
+    return window.localStorage.getItem(PV_KEY) === "true";
+  } catch (e) {
+    return false;
+  }
+}
+
 /**
  * Internal helper: fire an event through fbq (if present) and log it to the
  * debug overlay + console. fbq can be missing if an ad blocker strips the
  * Meta script, so we guard rather than assume it exists.
  */
 function firePixelEvent(eventName, params) {
+  if (isPredictedValueEnabled() && typeof params.value === "number") {
+    // Random 1.5x-4x of value, rounded to 2 decimals, kept numeric.
+    const multiplier = 1.5 + Math.random() * 2.5;
+    params = {
+      ...params,
+      predicted_value: Number((params.value * multiplier).toFixed(2)),
+    };
+  }
   if (typeof window.fbq === "function") {
     window.fbq("track", eventName, params);
   } else {
@@ -83,3 +118,4 @@ function trackPurchase(lines) {
 window.trackViewContent = trackViewContent;
 window.trackAddToCart = trackAddToCart;
 window.trackPurchase = trackPurchase;
+
